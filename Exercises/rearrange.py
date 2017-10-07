@@ -9,6 +9,7 @@ def rearrangeWords(lineArgs):
     return value
 
 if __name__ == '__main__':
+    print('Enter as many as words as you like, separated by commas')
     lineArgs = sys.argv
     lineArgs.pop(0) # Remove first item in list (argument name)
     print(rearrangeWords(lineArgs))

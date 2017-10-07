@@ -1,4 +1,4 @@
-import sys, word_frequency, random
+import sys, word_frequency, random, re
 
 def randomSample(textMap):
     return random.choice(list(textMap.wordMap.keys()))
@@ -19,8 +19,8 @@ def testWeightedSample(textMap):
     print(results)
 
 if __name__ == "__main__":
-    args = sys.argv
-    text = open(args[1]).read().split()
+    file_name = input("Enter name of text file as parameter: ")
+    text = open(file_name).read().split()
 
     textMap = word_frequency.HashMap(text)
     textMap.histogram()
