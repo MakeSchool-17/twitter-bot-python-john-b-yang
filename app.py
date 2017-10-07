@@ -14,5 +14,8 @@ if __name__ == '__main__':
 
     # 2. Generate dictionary for word analysis of corpus text
     output_file_read = open('book_sample.txt', 'r')
-    word_list = output_file_read.read().split()
+    word_list = tokenize.create_word_list(output_file_read.read())
     word_dict = tokenize.tokenize_text(output_file_read.read())
+
+    # 3. Create Markov Chain Representation of corpus from word_list
+    # then perform random walk for sentence generation
