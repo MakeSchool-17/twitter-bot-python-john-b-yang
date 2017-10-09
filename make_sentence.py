@@ -116,7 +116,10 @@ def run():
         constructNormMarkovMap()
         created_markov = True
 
-    return generateSentence(6)
+    sentence = generateSentence(6)
+    while (len(sentence) < 7):
+        sentence = generateSentence(6)
+    return sentence
 
 if __name__ == '__main__':
     print(run())
