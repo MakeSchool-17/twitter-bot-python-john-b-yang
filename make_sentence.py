@@ -75,7 +75,7 @@ def nextWord(prevList):
             return_val = key
     return return_val
 
-def generateSentence(sentence_length):
+def generateSentence(markov_gram_length):
     curr = random.choice(starts)
     # print("Random Start: " + curr)
     sent = curr.capitalize()
@@ -87,7 +87,7 @@ def generateSentence(sentence_length):
         curr = nextWord(prevList)
         prevList.append(curr)
         # Sentence longer than what user wanted
-        if (len(prevList) > sentence_length):
+        if (len(prevList) > markov_gram_length):
             prevList.pop(0)
         if (curr not in ".,!?;"):
             sent += " " # Spaces between words, not between punctuation
@@ -104,10 +104,13 @@ def printNormMarkov():
     for key, value in norm_markov_mapping.items():
         print(key, value)
 
-if __name__ == '__main__':
+def run():
     corpus = tokenize.create_word_list('book_sample.txt')
 
     # Larger markov gram lengths take longer to run, but generate more logical sentences
     constructRawMarkovMap(corpus, 5)
     constructNormMarkovMap()
-    print(generateSentence(6))
+    return generateSentence(6)
+
+if __name__ == '__main__':
+    print(run())
