@@ -11,6 +11,9 @@ norm_markov_mapping = {}
 # Set of start points for random walks
 starts = []
 
+# Created Variable: Run markov map creation once
+created_markov = False
+
 # Change List to Tuple for raw_mapping's key generation
 def toTupleHashKey(lst):
     return tuple(lst)
@@ -105,11 +108,14 @@ def printNormMarkov():
         print(key, value)
 
 def run():
-    corpus = tokenize.create_word_list('book_sample.txt')
+    global created_markov
+    if not created_markov:
+        corpus = tokenize.create_word_list('book_sample.txt')
+        # Larger markov gram lengths take longer to run, but generate more logical sentences
+        constructRawMarkovMap(corpus, 5)
+        constructNormMarkovMap()
+        created_markov = True
 
-    # Larger markov gram lengths take longer to run, but generate more logical sentences
-    constructRawMarkovMap(corpus, 5)
-    constructNormMarkovMap()
     return generateSentence(6)
 
 if __name__ == '__main__':
