@@ -112,7 +112,7 @@ def run():
     if not created_markov:
         corpus = tokenize.create_word_list('book_sample.txt')
         # Larger markov gram lengths take longer to run, but generate more logical sentences
-        constructRawMarkovMap(corpus, 5)
+        constructRawMarkovMap(corpus, 6)
         constructNormMarkovMap()
         created_markov = True
 
