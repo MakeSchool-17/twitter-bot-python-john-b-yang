@@ -117,7 +117,7 @@ def run():
         created_markov = True
 
     sentence = generateSentence(6)
-    while (len(sentence.split()) < 7):
+    while (len(sentence.split()) < 7 or len(sentence) > 140):
         sentence = generateSentence(6)
     return sentence
 

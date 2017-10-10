@@ -1,11 +1,17 @@
-from flask import Flask
-import make_sentence
-import os
+from flask import Flask, render_template, request, redirect
+import make_sentence, os, twitter
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return make_sentence.run()
+    return render_template('index.html', sentence=make_sentence.run())
+
+@app.route('/tweet', methods=['POST'])
+def tweet():
+    status = request.form['sentence']
+    twitter.tweet(status)
+    # Returns 400 Bad Request if tweet is longer than 140 characters
+    return redirect('/')
 
 if __name__ == '__main__':
     # Required for Heroku's port attachment during deployment
