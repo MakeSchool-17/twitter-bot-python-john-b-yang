@@ -1,5 +1,6 @@
-import os, dotenv, sys
-dotenv.load_dotenv('.env')
+import os, sys
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 consumer_key = os.environ.get('TWITTER_CONSUMER_KEY')
 consumer_secret = os.environ.get('TWITTER_CONSUMER_SECRET')
