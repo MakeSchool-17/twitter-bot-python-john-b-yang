@@ -8,3 +8,5 @@ click==6.7
 idna==2.6
 itsdangerous==0.24
 urllib3==1.22
+python-dotenv==0.7.1
+requests-oauthlib==0.8.0
