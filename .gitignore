@@ -90,3 +90,4 @@ Temporary Items
 
 .env
 *.pyc
+output.txt
