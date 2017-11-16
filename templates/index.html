@@ -1,5 +1,24 @@
-<blockquote>{{ sentence }}</blockquote>
-<form action="/tweet" method="post">
-  <input type="hidden" name="sentence" value="{{ sentence }}">
-  <button type="submit">Tweet this</button>
-</form>
+<head>
+    <meta charset="utf-8">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body style="background:#2ECCFA;">
+    <div class="container">
+        <div>
+            <h3 style="color:FFFFFF;">Captain Nemo Twitter Bot</h3>
+            <p style="color:FFFFFF;">A sentence generator emulating the book "Ten Thousand Leagues under the Sea"</p>
+        </div>
+        <blockquote style="color:FFFFFF;">New Sentence: {{ sentence }}</blockquote>
+        <p style="color:FFFFFF;">View the tutorial and source code here: https://github.com/MakeSchool-17/twitter-bot-python-john-b-yang</p>
+        <form action="/tweet" method="post">
+          <input type="hidden" name="sentence" value="{{ sentence }}">
+          <button type="submit">Tweet this</button>
+        </form>
+        <form>
+            <input type="hidden" name="refresh" onClick="window.location.reload()">
+            <button type="submit">Refresh Page</button>
+        </form>
+    </div>
+<body>
